@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="newUser"
+            type="com.example.khalil.recyclerviewwithbinding.Models.User" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        tools:context="com.example.khalil.recyclerviewwithbinding.MainActivity">
+
+        <LinearLayout
+            android:id="@+id/new_user_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/firstNameET"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:text="@={newUser.firstName}" />
+
+            <EditText
+                android:id="@+id/lastNameET"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="Last Name"
+                android:text="@={newUser.lastName}" />
+
+            <EditText
+                android:id="@+id/ageET"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:hint="Age"
+                android:inputType="numberDecimal"
+                android:text='@={newUser.age}' />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="SaveButton_Click"
+                android:text="Save" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/recycler_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/new_user_layout"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="First Name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Last Name" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="Age" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/user_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/recycler_header"
+            android:layout_marginTop="10dp"
+            android:scrollbars="vertical" />
+    </RelativeLayout>
+</layout>
